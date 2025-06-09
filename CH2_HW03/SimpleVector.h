@@ -50,12 +50,12 @@ public:
 			cout << "배열의 크기 재할당 : " << currentCapacity << " -> " << newCapacity << endl;
 			currentCapacity = newCapacity;
 
-			T* newData = new T[currentCapacity];
+			T* reallocation = new T[currentCapacity];
 			for (int i = 0; i < currentSize; i++) {
-				newData[i] = data[i];
+				reallocation[i] = data[i];
 			}
 			delete[] data;
-			data = newData;
+			data = reallocation;
 		}
 		
 	};
@@ -69,15 +69,15 @@ public:
 			cout << "원소의 개수가 넘쳐 배열의 크기를 5 증가!" << endl;
 			currentCapacity += 5;
 
-			T* newData = new T[currentCapacity];
+			T* reallocation = new T[currentCapacity];
 			for (int i = 0; i < currentSize; i++) {
-				newData[i] = data[i];
+				reallocation[i] = data[i];
 			}
 
-			newData[currentSize] = value;
+			reallocation[currentSize] = value;
 			currentSize++;
 			delete[] data;
-			data = newData;
+			data = reallocation;
 		}
 		
 	};
